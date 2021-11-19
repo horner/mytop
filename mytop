@@ -1,0 +1,3 @@
+:
+
+watch 'mysql -A --table -e "select memory_used, examined_rows, max_memory_used, time, id, user, host, db, command, stage, LEFT(info,50) as query  from information_schema.processlist order by EXAMINED_ROWS desc, memory_used desc, time desc" | cut -c 1-`tput cols` | head -n `tput lines`'
